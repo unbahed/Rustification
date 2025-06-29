@@ -1,0 +1,35 @@
+use std::collections::HashMap;
+
+pub trait Args {
+    fn get(&self) -> String;
+    fn clone(&self) -> Self;
+}
+
+pub struct arg {
+    pub name: Vec<String>,
+    pub input: bool,
+    pub description: String,
+}
+
+impl Args for arg {
+    fn get(&self) -> String {
+        return self.description.clone();
+    }
+    fn clone(&self) -> Self {
+        let tmp = arg {
+            name: self.name.clone(),
+            input: self.input.clone(),
+            description: self.description.clone(),
+        };
+        return tmp;
+    }
+}
+
+//pub fn get_argput<I>(iter: I, argv: Vec<String>) -> HashMap<String, String>
+pub fn get_argput<I>(iter: I, argv: Vec<String>) -> bool
+where
+    I: Iterator<Item = Box<arg>>,
+{
+    for d in iter {}
+    return false;
+}
